@@ -1,0 +1,22 @@
+.selectWrapper {
+    display: grid;
+    width: 30rem;
+    margin-bottom: 1rem;
+}
+
+.select {
+    font-size: 1.1rem;
+    background: blanchedalmond;
+    margin-top: 1rem;
+    font-family: "Montserrat";
+    height: 2rem;
+}
+
+.title {
+    font-family: "Montserrat";
+    margin-left: 1rem;
+    color: rgb(0, 0, 0);
+    font-size: 1.2rem;
+    cursor: text;
+    transition: 0.25s ease;
+  }

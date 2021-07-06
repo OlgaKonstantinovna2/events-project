@@ -1,0 +1,16 @@
+.wrapper {
+    margin: 3rem;
+}
+
+.title {
+    font-size: 2rem;
+    padding-top: 1rem;
+    margin: 1rem;
+    text-align: center;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+}
