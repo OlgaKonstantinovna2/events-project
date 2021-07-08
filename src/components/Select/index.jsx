@@ -1,9 +1,9 @@
 import styles from "./Select.module.css"
-import React, { useState } from "react";
+import React from "react";
 import Input from "../../components/Input"
 
 const Select = (
-    { setValue,
+    { onChange,
         value,
         name,
         budget,
@@ -26,13 +26,14 @@ const Select = (
                     value={title}
                     setValue={setTitle}
                     label="Название события:"
+                    id='5'
                 />
             </div>
             <div className={styles.selectWrapper}>
                 <div className={styles.title}>Тип события:</div>
                 <select
                     className={styles.select}
-                    onChange={(event) => setValue(event.target.value)}
+                    onChange={(event) => onChange(event.target.value)}
                     value={value}
                     name={name}>
                     <option value="event">Мероприятие</option>
@@ -46,12 +47,14 @@ const Select = (
                         value={budget}
                         setValue={setBudget}
                         label="Бюджет:"
+                        id='1'
                     />
                 ) : value === "mark" ? (
                     <Input
                         value={textMark}
                         setValue={setTextMark}
                         label="Описание:"
+                        id='2'
                     />
                 ) : value === "event" ?
                     (
@@ -60,11 +63,13 @@ const Select = (
                                 value={adress}
                                 setValue={setAdress}
                                 label="Куда идти?"
+                                id='3'
                             />
                             <Input
                                 value={time}
                                 setValue={setTime}
                                 label="Во сколько?"
+                                id='4'
                             />
                         </div>
                     ) : (

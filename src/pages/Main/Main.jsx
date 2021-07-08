@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Button from "../../components/Button";
 import styles from "./Main.module.css";
 import DatePickerComponent from "../../components/DatePicker";
 import { Link } from "react-router-dom";
 import List from "../../components/List";
-import { render } from "@testing-library/react";
 
 const Main = () => {
     const [startDate, setStartDate] = useState(new Date());
@@ -24,6 +23,18 @@ const Main = () => {
         }
     }
 
+    function formatDate(date) {
+        var d = new Date(date),
+            month = '' + (d.getMonth() + 1),
+            day = '' + d.getDate(),
+            year = d.getFullYear();
+
+        if (month.length < 2) month = '0' + month;
+        if (day.length < 2) day = '0' + day;
+
+        return [year, month, day].join('-');
+    }
+
     return (
         <div className={styles.wrapper}>
             <div className={styles.calendar}>
@@ -38,7 +49,7 @@ const Main = () => {
                                 () => {
                                     const tmp = JSON.parse(localStorage.getItem("qwe")) || []
                                     tmp.push({
-                                        date: startDate
+                                        date: formatDate(startDate)
                                     })
                                     localStorage.setItem("qwe", JSON.stringify(tmp))
                                 }}
@@ -51,7 +62,7 @@ const Main = () => {
                 {
                     today && (
                         today.map((item, i) =>
-                            <div>
+                            <div key={i}>
                                 {
                                     <List
                                         data={item}

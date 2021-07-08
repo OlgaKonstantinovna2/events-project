@@ -32,7 +32,7 @@ const AddAnEvent = () => {
                 title={title}
                 setTitle={setTitle}
                 value={valueSelect}
-                setValue={setValueSelect} />
+                onChange={setValueSelect} />
             <div className={styles.buttons}>
                 <Link to="/">
                     <Button
@@ -41,6 +41,7 @@ const AddAnEvent = () => {
                                 let data = JSON.parse(localStorage.getItem("qwe"))
                                 let removed = data.splice(-1, 1);
                                 console.log(data)
+                                console.log(removed)
                                 localStorage.setItem("qwe", JSON.stringify(data))
                             }
                         }}
